@@ -32,7 +32,8 @@ Write SQL (Postgres) `CREATE` statements to create the following schema. Be sure
 
 **Answer box:**
 ```sql
--- Create tables here
+CREATE TABLE id
+  
 ```
 
 ### b)
@@ -47,5 +48,10 @@ Using the above schema, write an SQL `SELECT` query to return all songs in a pla
 
 **Answer box:**
 ```sql
--- Write query here
+SELECT s.id AS id, p.id as playlist_id, s.title, s.artist, s.duration
+FROM playlists p
+JOIN playlist_songs ps ON ps.id = p.id
+JOIN songs s ON s.id = ps.song_id
+WHERE ps.id = 676767
+ORDER BY s.id;
 ```
